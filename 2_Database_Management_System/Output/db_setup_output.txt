@@ -1,0 +1,26 @@
+================================================================================
+DATABASE INITIALIZATION & VERIFICATION SUMMARY
+================================================================================
+
+TABLE NAME                | RECORD COUNT    | STATUS         
+------------------------------------------------------------
+categories                | 5               | OK (Active)    
+products                  | 20              | OK (Active)    
+customers                 | 10              | OK (Active)    
+inventory                 | 20              | OK (Active)    
+sales_transactions        | 13              | OK (Active)    
+sales_details             | 29              | OK (Active)    
+stock_updates             | 49              | OK (Active)    
+
+DATABASE VIEW                  | ROW COUNT       | STATUS         
+-----------------------------------------------------------------
+v_daily_sales_summary          | 9               | OK (Active)    
+v_low_stock_alerts             | 3               | OK (Active)    
+v_product_sales_performance    | 20              | OK (Active)    
+v_category_revenue             | 5               | OK (Active)    
+
+TRIGGER NAME                   | ATTACHED TABLE       | STATUS         
+----------------------------------------------------------------------
+trg_prevent_oversale           | sales_details        | ARMED          
+trg_deduct_stock_on_sale       | sales_details        | ARMED          
+trg_audit_restock              | inventory            | ARMED          

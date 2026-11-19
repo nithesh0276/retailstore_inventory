@@ -1,0 +1,17 @@
+
+>>> STEP 4: CHECKING REAL-TIME STOCK AVAILABILITY (Product #1 & Product #4)
+----------------------------------------------------------------------------------------
+Product #1 (Wireless Mouse)       : Available Stock = 56 units
+Product #4 (Noise Cancelling HP)  : Available Stock = 24 units (Reorder = 8, CRITICAL)
+
+>>> STEP 5: PROCESSING VALID SALES TRANSACTION (Customer #1 buying 3 units of Prod #1)
+----------------------------------------------------------------------------------------
+[SUCCESS] Transaction #115 committed successfully!
+Product #1 Stock BEFORE: 56 | Stock AFTER: 53 (Decremented by 3 units automatically)
+
+>>> STEP 6: TESTING OVER-SALE PREVENTION DEFENSE (Attempting to purchase 100 units of Prod #4)
+----------------------------------------------------------------------------------------
+Attempting to purchase 100 units of Product #4 (Current On-Hand Stock = 24 units)...
+[PASS] OVER-SALE DEFENSE ACTIVATED! Sale strictly rejected by Java validation:
+Exception: SALE BLOCKED: Requested quantity exceeds available inventory stock! [Product #4 'Noise Cancelling Headphones']: Available Stock = 24, Requested = 100 (Shortfall = 76 units)
+Stock Unchanged: 24 units remain safely in inventory.

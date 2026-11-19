@@ -1,0 +1,26 @@
+=====================================================================================
+DATABASE TRIGGER & INTEGRITY CONSTRAINT VERIFICATION REPORT
+Course: 25ITT31 Database Management Systems | Unit 2: Advanced SQL
+=====================================================================================
+
+---------------------------------------------------------------------------
+TEST CASE 1: AUTOMATIC STOCK DEDUCTION ON SALE (Trigger: trg_deduct_stock_on_sale)
+---------------------------------------------------------------------------
+Target Product       : [2] Mechanical Gaming Keyboard
+Stock BEFORE Sale    : 36 units
+Quantity Sold        : 3 units (Transaction ID #114)
+Stock AFTER Sale     : 33 units
+Expected Deduction   : -3 units
+STATUS               : [PASS] Trigger successfully deducted stock atomically!
+Audit Trail Record   : ID=50, Change=-3, Type=SALE, Balance=33, Note='Auto stock deduction for Sales Transaction #114 (Qty: 3)'
+
+---------------------------------------------------------------------------
+TEST CASE 2: OVER-SALE PREVENTION DEFENSE (Trigger: trg_prevent_oversale)
+---------------------------------------------------------------------------
+Target Product       : [4] Noise Cancelling Headphones
+Available Stock      : 4 units
+Attempted Purchase   : 54 units (Exceeds available stock by 50 units!)
+Trigger Response     : Intercepted & Aborted!
+Exception Message    : INSUFFICIENT_STOCK_ERROR: Requested quantity exceeds available inventory stock!
+STATUS               : [PASS] Over-sale strictly rejected! Zero stock modified.
+Stock Post-Rejection : 4 units (Confirmed unchanged)

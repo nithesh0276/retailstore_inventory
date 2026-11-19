@@ -1,0 +1,108 @@
+========================================================================================
+   RETAIL STORE INVENTORY AND SALES ANALYSIS SYSTEM - AUTOMATED DEMO RUNNER
+   Regulation: VCET B.Tech IT (R2025) | Course: 25ITT32 Java Programming
+   Register No: 9, 39, 69, 99
+========================================================================================
+
+>>> STEP 1: VERIFYING PRODUCT CATEGORIES
+-----------------------------------------------------------------------
+Category ID: 1 | Name: Electronics               | Scope: Consumer electronics, accessories, smart devices, and peripherals
+Category ID: 2 | Name: Groceries & Staples       | Scope: Daily grocery staples, rice, flour, pulses, cooking oils, and condiments
+Category ID: 3 | Name: Beverages & Snacks        | Scope: Packaged juices, organic tea, roasted coffees, sodas, and cookies
+Category ID: 4 | Name: Personal Care             | Scope: Hygiene essentials, skincare, haircare, sanitizers, and soaps
+Category ID: 5 | Name: Home & Kitchen            | Scope: Cookware, cleaning agents, organizers, and tableware
+
+>>> STEP 2: VERIFYING REGISTERED CUSTOMERS
+-----------------------------------------------------------------------
+Cust #1  | Name: Aarav Sharma         | Phone: 9876543210   | Email: aarav.sharma@example.com
+Cust #2  | Name: Diya Patel           | Phone: 9812345678   | Email: diya.patel@example.com
+Cust #3  | Name: Rohan Verma          | Phone: 9723456789   | Email: rohan.verma@example.com
+Cust #4  | Name: Ananya Iyer          | Phone: 9634567890   | Email: ananya.iyer@example.com
+Cust #5  | Name: Vikram Malhotra      | Phone: 9545678901   | Email: vikram.m@example.com
+Cust #6  | Name: Pooja Hegde          | Phone: 9456789012   | Email: pooja.h@example.com
+Cust #7  | Name: Karthik Raja         | Phone: 9367890123   | Email: karthik.raja@example.com
+Cust #8  | Name: Sneha Mukherjee      | Phone: 9278901234   | Email: sneha.m@example.com
+Cust #9  | Name: Rahul Dravid         | Phone: 9189012345   | Email: rahul.d@example.com
+Cust #10 | Name: Meera Nambiar        | Phone: 9090123456   | Email: meera.n@example.com
+
+>>> STEP 3: INITIAL PRODUCT CATALOG & ON-HAND STOCK STATUS
+----------------------------------------------------------------------------------------
+ID   | PRODUCT NAME                        | CATEGORY             | PRICE ($) | STOCK  | REORDER 
+------------------------------------------------------------------------------------------
+1    | Wireless Optical Mouse              | Electronics          |     24.99 |     56 |       15
+2    | Mechanical Gaming Keyboard          | Electronics          |     79.99 |     36 |       10
+3    | USB-C Fast Charging Cable           | Electronics          |     12.99 |     80 |       20
+4    | Noise Cancelling Headphones         | Electronics          |    129.99 |     24 |        8
+5    | Basmati Rice Premium (5kg)          | Groceries & Staples  |     18.50 |     71 |       25
+6    | Organic Wheat Flour (10kg)          | Groceries & Staples  |     22.00 |     49 |       20
+7    | Extra Virgin Olive Oil (1L)         | Groceries & Staples  |     14.99 |     38 |       12
+8    | Pure Golden Honey (500g)            | Groceries & Staples  |      8.50 |     44 |       15
+9    | Arabica Dark Roast Coffee Beans (500g) | Beverages & Snacks   |     16.99 |     31 |       12
+10   | Organic Green Tea (100 Bags)        | Beverages & Snacks   |      9.99 |     59 |       18
+11   | Almond Butter Crunch Granola (400g) | Beverages & Snacks   |      6.49 |     36 |       15
+12   | Natural Coconut Water (1L)          | Beverages & Snacks   |      4.25 |      6 |       30
+13   | Botanical Moisturizing Shampoo (400ml) | Personal Care        |     11.50 |     48 |       15
+14   | Antibacterial Hand Wash (500ml)     | Personal Care        |      5.99 |     77 |       25
+15   | Charcoal Whitening Toothpaste (150g) | Personal Care        |      4.50 |     64 |       20
+16   | Moisturizing Aloe Vera Lotion (250ml) | Personal Care        |      8.99 |     30 |       10
+17   | Stainless Steel Thermal Flask (1L)  | Home & Kitchen       |     19.99 |     26 |       10
+18   | Non-Stick Ceramic Frying Pan (28cm) | Home & Kitchen       |     34.99 |      3 |        8
+19   | Microfiber Cleaning Cloth Set (6pk) | Home & Kitchen       |      7.99 |     53 |       20
+20   | Aromatherapy Soy Scented Candle     | Home & Kitchen       |     13.50 |     29 |       12
+
+>>> STEP 4: CHECKING REAL-TIME STOCK AVAILABILITY (Product #1 & Product #4)
+----------------------------------------------------------------------------------------
+Product #1 (Wireless Mouse)       : Available Stock = 56 units
+Product #4 (Noise Cancelling HP)  : Available Stock = 24 units (Reorder = 8, CRITICAL)
+
+>>> STEP 5: PROCESSING VALID SALES TRANSACTION (Customer #1 buying 3 units of Prod #1)
+----------------------------------------------------------------------------------------
+[SUCCESS] Transaction #115 committed successfully!
+Product #1 Stock BEFORE: 56 | Stock AFTER: 53 (Decremented by 3 units automatically)
+
+>>> STEP 6: TESTING OVER-SALE PREVENTION DEFENSE (Attempting to purchase 100 units of Prod #4)
+----------------------------------------------------------------------------------------
+Attempting to purchase 100 units of Product #4 (Current On-Hand Stock = 24 units)...
+[PASS] OVER-SALE DEFENSE ACTIVATED! Sale strictly rejected by Java validation:
+Exception: SALE BLOCKED: Requested quantity exceeds available inventory stock! [Product #4 'Noise Cancelling Headphones']: Available Stock = 24, Requested = 100 (Shortfall = 76 units)
+Stock Unchanged: 24 units remain safely in inventory.
+
+>>> STEP 7: RESTOCKING LOW-STOCK PRODUCT (Replenishing Product #4 with +20 units)
+----------------------------------------------------------------------------------------
+[SUCCESS] Product #4 restocked! Stock increased from 24 to 44 units.
+
+>>> STEP 8: DAILY SALES REPORT (Generated using Java 8+ Stream API)
+----------------------------------------------------------------------------------------
+TRANSACTION DATE | TOTAL REVENUE ($) 
+--------------------------------------
+2026-11-10      |             104.98
+2026-11-11      |             120.44
+2026-11-12      |              50.98
+2026-11-13      |             154.98
+2026-11-14      |              44.97
+2026-11-15      |              89.96
+2026-11-16      |             133.96
+2026-11-17      |             133.44
+2026-11-18      |             153.42
+CURRENT_TI      |             149.94
+--------------------------------------
+CUMULATIVE      |            1137.07
+
+>>> STEP 9: LOW-STOCK ALERT REPORT (Items at or below reorder threshold)
+----------------------------------------------------------------------------------------
+ID   | PRODUCT NAME                     | CATEGORY           | STOCK   | REORDER  | DEFICIT   
+-----------------------------------------------------------------------------------------------
+18   | Non-Stick Ceramic Frying Pan (28cm) | Home & Kitchen     |       3 |        8 |          5
+12   | Natural Coconut Water (1L)       | Beverages & Snacks |       6 |       30 |         24
+
+>>> STEP 10: IMMUTABLE AUDIT LOG (Most recent 5 stock modification events)
+----------------------------------------------------------------------------------------
+Audit ID: 53  | Prod: Noise Cancelling Headphones    | Change: +20 | Type: RESTOCK | Bal:  44 | Time: 2026-11-18 20:23:52
+Audit ID: 52  | Prod: Wireless Optical Mouse         | Change:  -3 | Type: SALE    | Bal:  53 | Time: 2026-11-18 20:23:52
+Audit ID: 51  | Prod: Noise Cancelling Headphones    | Change: +20 | Type: RESTOCK | Bal:  24 | Time: 2026-11-18 20:23:18
+Audit ID: 50  | Prod: Wireless Optical Mouse         | Change:  -3 | Type: SALE    | Bal:  56 | Time: 2026-11-18 20:23:18
+Audit ID: 49  | Prod: USB-C Fast Charging Cable      | Change:  -3 | Type: SALE    | Bal:  80 | Time: 2026-11-18 20:13:42
+
+========================================================================================
+   ALL 12 FUNCTIONAL REQUIREMENTS VERIFIED SUCCESSFULLY IN JAVA APPLICATION!
+========================================================================================

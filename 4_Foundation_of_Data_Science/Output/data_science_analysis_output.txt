@@ -1,0 +1,96 @@
+==========================================================================================
+   FOUNDATION OF DATA SCIENCE - RETAIL SALES & INVENTORY ANALYTICS PIPELINE
+   Academic Regulation: VCET B.Tech IT (R2025) | Course Code: 25ITC31
+   Register Numbers: 9, 39, 69, 99
+==========================================================================================
+
+[PHASE 1] DATA RETRIEVAL & EXTRACTION (sqlite3 Engine)
+---------------------------------------------------------------------------
+  • Extracted Products Dataset     : 20 rows, 9 features
+  • Extracted Sales Items Dataset  : 29 rows, 14 features
+  • Extracted Categories           : 5 classifications
+  • Extracted Audit Logs           : 49 inventory movement records
+
+[PHASE 2] DATA CLEANING & FEATURE ENGINEERING (Unit 4: Preprocessing)
+---------------------------------------------------------------------------
+  • Missing Values Handled        : Imputed zero for unlinked stock, 10 for default reorder
+  • Date Casting & Extraction     : Formatted timestamps to DatetimeIndex, extracted Day of Week
+  • New Engineered Features       : gross_profit, profit_margin_pct, inventory_valuation, stock_status
+  • Cleaned Datasets Exported     : Data_Preprocessing/cleaned_products.csv, cleaned_sales.csv
+
+[PHASE 3] EXPLORATORY DATA ANALYSIS & DESCRIPTIVE STATISTICS (Unit 1 & 3)
+---------------------------------------------------------------------------
+1. Executive Sales Overview:
+   - Total Processed Orders        : 13 orders
+   - Total Units Sold              : 52 items
+   - Total Sales Revenue           : $993.62
+   - Total Gross Profit            : $434.52
+   - Overall Gross Margin          : 43.73%
+   - Average Order Value (AOV)     : $76.43
+
+2. Inventory Position & Valuation:
+   - Total On-Hand Stock           : 843 units
+   - Total Inventory Asset Value   : $13,634.18
+   - Low-Stock Products Count      : 3 items
+   - Critical Risk Items Count     : 3 items
+
+3. Descriptive Statistics for Order Line Values (Unit 1 Measures):
+   - Mean Line Value               : $34.26
+   - Median Line Value             : $25.98
+   - Standard Deviation (sigma)    : $27.42
+   - Variance (sigma^2)            : $752.08
+   - Minimum Transaction Value     : $4.25
+   - Maximum Transaction Value     : $129.99
+   - Interquartile Range (IQR)     : $22.99 (Q1=$16.99, Q3=$39.98)
+
+4. Category-Wise Performance Summary:
+CATEGORY NAME             | UNITS SOLD  | REVENUE ($)  | GROSS PROFIT ($)
+------------------------------------------------------------------------
+Electronics               | 19          | 569.81       | 265.81          
+Groceries & Staples       | 8           | 134.48       | 41.38           
+Home & Kitchen            | 8           | 131.45       | 61.05           
+Beverages & Snacks        | 11          | 112.41       | 44.71           
+Personal Care             | 6           | 45.47        | 21.57           
+
+5. Fast-Selling Products (Ranked by Sales Volume & Turnover):
+ID   | PRODUCT NAME                     | CATEGORY           | UNITS  | REVENUE ($)  | ON-HAND 
+--------------------------------------------------------------------------------------------
+3    | USB-C Fast Charging Cable        | Electronics        | 10     | 129.90       | 80      
+1    | Wireless Optical Mouse           | Electronics        | 6      | 149.94       | 59      
+5    | Basmati Rice Premium (5kg)       | Groceries & Staples | 4      | 74.00        | 71      
+9    | Arabica Dark Roast Coffee Beans (500g) | Beverages & Snacks | 4      | 67.96        | 31      
+11   | Almond Butter Crunch Granola (400g) | Beverages & Snacks | 4      | 25.96        | 36      
+
+6. Low-Stock / Critical Inventory Alert Table:
+ID   | PRODUCT NAME                     | CATEGORY           | STOCK  | REORDER  | STATUS    
+----------------------------------------------------------------------------------------
+18   | Non-Stick Ceramic Frying Pan (28cm) | Home & Kitchen     | 3      | 8        | CRITICAL  
+4    | Noise Cancelling Headphones      | Electronics        | 4      | 8        | CRITICAL  
+12   | Natural Coconut Water (1L)       | Beverages & Snacks | 6      | 30       | CRITICAL  
+
+7. Daily Sales Trends Analysis:
+DATE         | ORDERS   | UNITS SOLD  | DAILY REVENUE ($)  | PROFIT ($)  
+------------------------------------------------------------------------
+2026-11-10   | 1        | 2           | 104.98             | 45.48       
+2026-11-11   | 2        | 9           | 120.44             | 57.94       
+2026-11-12   | 1        | 4           | 51.22              | 18.62       
+2026-11-13   | 1        | 2           | 154.98             | 65.48       
+2026-11-14   | 1        | 6           | 45.47              | 21.57       
+2026-11-15   | 1        | 8           | 92.94              | 42.14       
+2026-11-16   | 2        | 4           | 138.99             | 51.49       
+2026-11-17   | 2        | 8           | 131.18             | 57.78       
+2026-11-18   | 2        | 9           | 153.42             | 74.02       
+
+[PHASE 4] RENDERING VISUALIZATION DASHBOARD (Unit 5: EDA & Charts)
+---------------------------------------------------------------------------
+  • Chart 1: Category Distribution (1_category_distribution.png)
+  • Chart 2: Product Sales Volume vs Revenue (2_product_sales_volume_and_revenue.png)
+  • Chart 3: Daily Sales Revenue Trend (3_daily_sales_trends.png)
+  • Chart 4: Stock Availability vs Reorder Thresholds (4_stock_availability_vs_reorder.png)
+  • Chart 5: Fast-Selling Products Ranking (5_fast_selling_products.png)
+  • Chart 6: Low-Stock Risk Deficit Analysis (6_low_stock_risk_analysis.png)
+  • Chart 7: Feature Correlation Matrix Heatmap (7_correlation_matrix_heatmap.png)
+
+==========================================================================================
+   FOUNDATION OF DATA SCIENCE PIPELINE COMPLETED SUCCESSFULLY!
+==========================================================================================

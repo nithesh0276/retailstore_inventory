@@ -1,0 +1,21 @@
+product_id,product_name,category_name,available_stock,reorder_level,stock_status,inventory_valuation
+1,Wireless Optical Mouse,Electronics,59,15,ADEQUATE,1474.4099999999999
+2,Mechanical Gaming Keyboard,Electronics,36,10,ADEQUATE,2879.64
+3,USB-C Fast Charging Cable,Electronics,80,20,ADEQUATE,1039.2
+4,Noise Cancelling Headphones,Electronics,4,8,CRITICAL,519.96
+5,Basmati Rice Premium (5kg),Groceries & Staples,71,25,ADEQUATE,1313.5
+6,Organic Wheat Flour (10kg),Groceries & Staples,49,20,ADEQUATE,1078.0
+7,Extra Virgin Olive Oil (1L),Groceries & Staples,38,12,ADEQUATE,569.62
+8,Pure Golden Honey (500g),Groceries & Staples,44,15,ADEQUATE,374.0
+9,Arabica Dark Roast Coffee Beans (500g),Beverages & Snacks,31,12,ADEQUATE,526.6899999999999
+10,Organic Green Tea (100 Bags),Beverages & Snacks,59,18,ADEQUATE,589.41
+11,Almond Butter Crunch Granola (400g),Beverages & Snacks,36,15,ADEQUATE,233.64000000000001
+12,Natural Coconut Water (1L),Beverages & Snacks,6,30,CRITICAL,25.5
+13,Botanical Moisturizing Shampoo (400ml),Personal Care,48,15,ADEQUATE,552.0
+14,Antibacterial Hand Wash (500ml),Personal Care,77,25,ADEQUATE,461.23
+15,Charcoal Whitening Toothpaste (150g),Personal Care,64,20,ADEQUATE,288.0
+16,Moisturizing Aloe Vera Lotion (250ml),Personal Care,30,10,ADEQUATE,269.7
+17,Stainless Steel Thermal Flask (1L),Home & Kitchen,26,10,ADEQUATE,519.74
+18,Non-Stick Ceramic Frying Pan (28cm),Home & Kitchen,3,8,CRITICAL,104.97
+19,Microfiber Cleaning Cloth Set (6pk),Home & Kitchen,53,20,ADEQUATE,423.47
+20,Aromatherapy Soy Scented Candle,Home & Kitchen,29,12,ADEQUATE,391.5

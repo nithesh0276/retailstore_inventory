@@ -1,0 +1,115 @@
+==========================================================================================
+DATABASE QUERY EXECUTION REPORT: RETAIL STORE SYSTEM
+Academic Regulation: VCET B.Tech IT (R2025) | Course: 25ITT31 DBMS
+==========================================================================================
+
+################################################################################
+SECTION 1: BASIC QUERIES (Selection, Projection, Sorting, Filtering)
+################################################################################
+
+[QUERY 1.1] Sample Products Catalog:
+SQL: SELECT product_id, product_name, unit_price, cost_price, reorder_level FROM products LIMIT 5;
+
+ID   | PRODUCT NAME                        | PRICE ($)  | COST ($)   | REORDER 
+---------------------------------------------------------------------------
+1    | Wireless Optical Mouse              | 24.99      | 14.50      | 15      
+2    | Mechanical Gaming Keyboard          | 79.99      | 45.00      | 10      
+3    | USB-C Fast Charging Cable           | 12.99      | 5.20       | 20      
+4    | Noise Cancelling Headphones         | 129.99     | 75.00      | 8       
+5    | Basmati Rice Premium (5kg)          | 18.50      | 13.00      | 25      
+
+################################################################################
+SECTION 2: JOINS & AGGREGATE FUNCTIONS
+################################################################################
+
+[QUERY 2.1] Inventory Valuation (3-Table Join):
+SQL: SELECT 
+        p.product_id, p.product_name, c.category_name, p.unit_price, i.available_stock,
+        ROUND(p.unit_price * i.available_stock, 2) AS stock_value
+    FROM products p
+    JOIN categories c ON p.category_id = c.category_id
+    JOIN inventory i ON p.product_id = i.product_id
+    LIMIT 6;
+
+ID   | PRODUCT NAME                     | CATEGORY             | PRICE    | STOCK  | VALUATION ($)
+--------------------------------------------------------------------------------------------
+1    | Wireless Optical Mouse           | Electronics          | 24.99    | 59     | 1474.41     
+2    | Mechanical Gaming Keyboard       | Electronics          | 79.99    | 33     | 2639.67     
+3    | USB-C Fast Charging Cable        | Electronics          | 12.99    | 80     | 1039.20     
+4    | Noise Cancelling Headphones      | Electronics          | 129.99   | 4      | 519.96      
+5    | Basmati Rice Premium (5kg)       | Groceries & Staples  | 18.50    | 71     | 1313.50     
+6    | Organic Wheat Flour (10kg)       | Groceries & Staples  | 22.00    | 49     | 1078.00     
+
+[QUERY 2.2] Category-wise Revenue Aggregation (GROUP BY):
+SQL: SELECT 
+        c.category_name,
+        COUNT(DISTINCT p.product_id) AS items_count,
+        COALESCE(SUM(sd.quantity_sold), 0) AS total_units_sold,
+        ROUND(COALESCE(SUM(sd.subtotal), 0.0), 2) AS category_revenue
+    FROM categories c
+    JOIN products p ON c.category_id = p.category_id
+    LEFT JOIN sales_details sd ON p.product_id = sd.product_id
+    GROUP BY c.category_id, c.category_name
+    ORDER BY category_revenue DESC;
+
+CATEGORY                  | ITEMS  | UNITS SOLD  | REVENUE ($) 
+--------------------------------------------------------------
+Electronics               | 4      | 22          | 809.78      
+Groceries & Staples       | 4      | 8           | 134.48      
+Home & Kitchen            | 4      | 8           | 131.45      
+Beverages & Snacks        | 4      | 11          | 112.41      
+Personal Care             | 4      | 6           | 45.47       
+
+################################################################################
+SECTION 3: ANALYTICAL DATABASE VIEWS
+################################################################################
+
+[VIEW 1] Daily Sales Summary (v_daily_sales_summary):
+SQL: SELECT sale_date, total_orders, total_revenue, average_order_value, total_units_sold FROM v_daily_sales_summary ORDER BY sale_date DESC;
+
+SALE DATE    | ORDERS   | REVENUE ($)  | AOV ($)    | UNITS SOLD
+--------------------------------------------------------------
+2026-11-18   | 3        | 611.28       | 101.88     | 12        
+2026-11-17   | 2        | 298.38       | 74.59      | 8         
+2026-11-16   | 2        | 192.94       | 64.31      | 4         
+2026-11-15   | 1        | 269.88       | 89.96      | 8         
+2026-11-14   | 1        | 134.91       | 44.97      | 6         
+2026-11-13   | 1        | 309.96       | 154.98     | 2         
+2026-11-12   | 1        | 152.94       | 50.98      | 4         
+2026-11-11   | 2        | 231.42       | 57.86      | 9         
+2026-11-10   | 1        | 209.96       | 104.98     | 2         
+
+[VIEW 2] Low Stock Alerts (v_low_stock_alerts):
+SQL: SELECT product_id, product_name, category_name, available_stock, reorder_level, alert_status FROM v_low_stock_alerts ORDER BY available_stock ASC;
+
+ID   | PRODUCT NAME                        | CATEGORY             | STOCK  | REORDER  | STATUS      
+----------------------------------------------------------------------------------------------
+18   | Non-Stick Ceramic Frying Pan (28cm) | Home & Kitchen       | 3      | 8        | CRITICAL    
+4    | Noise Cancelling Headphones         | Electronics          | 4      | 8        | CRITICAL    
+12   | Natural Coconut Water (1L)          | Beverages & Snacks   | 6      | 30       | CRITICAL    
+
+################################################################################
+SECTION 4: BUSINESS INTELLIGENCE (Fast-Selling Products)
+################################################################################
+
+[REPORT] Top 5 Fast-Selling Products:
+SQL: SELECT 
+        p.product_id, p.product_name, c.category_name,
+        SUM(sd.quantity_sold) AS units_sold,
+        ROUND(SUM(sd.subtotal), 2) AS total_revenue,
+        i.available_stock
+    FROM products p
+    JOIN categories c ON p.category_id = c.category_id
+    JOIN sales_details sd ON p.product_id = sd.product_id
+    JOIN inventory i ON p.product_id = i.product_id
+    GROUP BY p.product_id
+    ORDER BY units_sold DESC
+    LIMIT 5;
+
+ID   | PRODUCT NAME                     | CATEGORY             | UNITS  | REVENUE ($)  | ON-HAND 
+--------------------------------------------------------------------------------------------
+3    | USB-C Fast Charging Cable        | Electronics          | 10     | 129.90       | 80      
+1    | Wireless Optical Mouse           | Electronics          | 6      | 149.94       | 59      
+2    | Mechanical Gaming Keyboard       | Electronics          | 5      | 399.95       | 33      
+5    | Basmati Rice Premium (5kg)       | Groceries & Staples  | 4      | 74.00        | 71      
+9    | Arabica Dark Roast Coffee Beans (500g) | Beverages & Snacks   | 4      | 67.96        | 31      

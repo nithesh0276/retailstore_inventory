@@ -1,0 +1,21 @@
+product_id,product_name,category_id,category_name,unit_price,cost_price,reorder_level,available_stock,last_stock_update,inventory_valuation,reorder_deficit,stock_status
+1,Wireless Optical Mouse,1,Electronics,24.99,14.5,15,59,2026-11-18 20:13:42,1474.4099999999999,-44,ADEQUATE
+2,Mechanical Gaming Keyboard,1,Electronics,79.99,45.0,10,36,2026-11-18 20:13:42,2879.64,-26,ADEQUATE
+3,USB-C Fast Charging Cable,1,Electronics,12.99,5.2,20,80,2026-11-18 20:13:42,1039.2,-60,ADEQUATE
+4,Noise Cancelling Headphones,1,Electronics,129.99,75.0,8,4,2026-11-18 20:13:42,519.96,4,CRITICAL
+5,Basmati Rice Premium (5kg),2,Groceries & Staples,18.5,13.0,25,71,2026-11-18 20:13:42,1313.5,-46,ADEQUATE
+6,Organic Wheat Flour (10kg),2,Groceries & Staples,22.0,16.5,20,49,2026-11-18 20:13:42,1078.0,-29,ADEQUATE
+7,Extra Virgin Olive Oil (1L),2,Groceries & Staples,14.99,9.8,12,38,2026-11-18 20:13:42,569.62,-26,ADEQUATE
+8,Pure Golden Honey (500g),2,Groceries & Staples,8.5,5.0,15,44,2026-11-18 20:13:42,374.0,-29,ADEQUATE
+9,Arabica Dark Roast Coffee Beans (500g),3,Beverages & Snacks,16.99,10.5,12,31,2026-11-18 20:13:42,526.6899999999999,-19,ADEQUATE
+10,Organic Green Tea (100 Bags),3,Beverages & Snacks,9.99,5.5,18,59,2026-11-18 20:13:42,589.41,-41,ADEQUATE
+11,Almond Butter Crunch Granola (400g),3,Beverages & Snacks,6.49,3.8,15,36,2026-11-18 20:13:42,233.64000000000001,-21,ADEQUATE
+12,Natural Coconut Water (1L),3,Beverages & Snacks,4.25,2.5,30,6,2026-11-18 20:13:42,25.5,24,CRITICAL
+13,Botanical Moisturizing Shampoo (400ml),4,Personal Care,11.5,6.2,15,48,2026-11-18 20:13:42,552.0,-33,ADEQUATE
+14,Antibacterial Hand Wash (500ml),4,Personal Care,5.99,3.1,25,77,2026-11-18 20:13:42,461.23,-52,ADEQUATE
+15,Charcoal Whitening Toothpaste (150g),4,Personal Care,4.5,2.2,20,64,2026-11-18 20:13:42,288.0,-44,ADEQUATE
+16,Moisturizing Aloe Vera Lotion (250ml),4,Personal Care,8.99,4.5,10,30,2026-11-01 09:00:00,269.7,-20,ADEQUATE
+17,Stainless Steel Thermal Flask (1L),5,Home & Kitchen,19.99,11.0,10,26,2026-11-18 20:13:42,519.74,-16,ADEQUATE
+18,Non-Stick Ceramic Frying Pan (28cm),5,Home & Kitchen,34.99,21.0,8,3,2026-11-18 20:13:42,104.97,5,CRITICAL
+19,Microfiber Cleaning Cloth Set (6pk),5,Home & Kitchen,7.99,3.5,20,53,2026-11-18 20:13:42,423.47,-33,ADEQUATE
+20,Aromatherapy Soy Scented Candle,5,Home & Kitchen,13.5,6.8,12,29,2026-11-18 20:13:42,391.5,-17,ADEQUATE
